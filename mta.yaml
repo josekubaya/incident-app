@@ -8,6 +8,7 @@ build-parameters:
   before-all:
     - builder: custom
       commands:
+        - npm install
         - npm ci
         - npx cds build --production
 modules:
@@ -24,7 +25,19 @@ modules:
         properties:
           srv-url: ${default-url}
     requires:
-      []
+      - name: incident-mgmt-db
+
+  - name: incident-mgmt-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: incident-mgmt-db
 
 resources:
-  []
+  - name: incident-mgmt-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
