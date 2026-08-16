@@ -4,7 +4,7 @@
   "dependencies": {
     "@cap-js/hana": "^2",
     "@sap/cds": "^9",
-    "@sap/xssec": "^3",
+    "@sap/xssec": "^4",
     "express": "^4",
     "passport": "^0"
   },
@@ -27,7 +27,6 @@
   "private": true,
   "cds": {
     "requires": {
-      
       "[development]": {
         "auth": {
           "kind": "mocked",
@@ -39,7 +38,12 @@
             }
           }
         }
-      }
+      },
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "html5-repo": true
     },
     "db": {
       "kind": "sql"
