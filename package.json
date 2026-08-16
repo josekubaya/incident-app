@@ -27,17 +27,7 @@
   "private": true,
   "cds": {
     "requires": {
-      "[production]": {
-        "db": {
-          "kind": "hana"
-        },
-        "auth": {
-          "kind": "xsuaa"
-        },
-        "approuter": {
-          "kind": "cloudfoundry"
-        }
-      },
+      
       "[development]": {
         "auth": {
           "kind": "mocked",
