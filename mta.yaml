@@ -87,8 +87,8 @@ resources:
   - name: incident-mgmt-db
     type: com.sap.xs.hdi-container
     parameters:
-      service: hana-cloud
-      service-plan: hana-free
+      service: hana
+      service-plan: hdi-shared
   - name: incident-mgmt-auth
     type: org.cloudfoundry.managed-service
     parameters:
